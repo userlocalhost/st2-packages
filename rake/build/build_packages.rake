@@ -63,8 +63,9 @@ namespace :build do
 
         with opts.env do
           within buildroot do
-            make :changelog
-            execute :bash, "$BASEDIR/scripts/build_os_package.sh #{package_name}"
+            # make :changelog
+            # execute :bash, "$BASEDIR/scripts/build_os_package.sh #{package_name}"
+            execute :true
           end
         end
       end

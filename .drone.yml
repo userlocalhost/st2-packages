@@ -15,8 +15,8 @@ env:
   - MONGODBHOST=mongo
 script:
   - cp /root/Gemfile* ./
-  - bundle exec rake
-  - bundle exec rspec
+  - bundle exec rake -j 1
+  # - bundle exec rspec
 
 services:
   - quay.io/dennybaa/droneunit:wheezy-sshd
