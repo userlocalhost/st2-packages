@@ -40,7 +40,7 @@ wheelhouse: .stamp-wheelhouse
 injectdeps: .stamp-injectdeps
 .stamp-injectdeps:
 	# We can modify requirements ONLY AFTER wheelhouse has been built
-	@echo "st2common" >> requirements.txt
+	# @echo "st2common" >> requirements.txt
 	touch $@
 
 bdist_wheel: .stamp-bdist_wheel
