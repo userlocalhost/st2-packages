@@ -39,7 +39,7 @@ endif
 wheelhouse: .stamp-wheelhouse
 .stamp-wheelhouse: populate_version requirements
 	# Install wheels into shared location
-	pip wheel --wheel-dir=$(WHEELDIR) -r requirements.txt
+	pip wheel install -r requirements.txt
 	touch $@
 
 injectdeps: .stamp-injectdeps

@@ -17,12 +17,12 @@ namespace :build do
     pipeline do
       # Download artifacts to packagingrunner (on drone 0.3),
       # in compose they are available via volume.
-      run hostname: opts[:buildnode] do |opts|
-        rule = [ opts.artifact_dir, File.dirname(opts.artifact_dir) ]
-        download!(*rule, recursive: true)
-      end if opts.dronemode.to_i == 1
+      # run hostname: opts[:buildnode] do |opts|
+      #   rule = [ opts.artifact_dir, File.dirname(opts.artifact_dir) ]
+      #   download!(*rule, recursive: true)
+      # end if opts.dronemode.to_i == 1
 
-      run(:local) {|o| execute :ls, "-l #{o[:artifact_dir]}", verbosity: :debug}
+      # run(:local) {|o| execute :ls, "-l #{o[:artifact_dir]}", verbosity: :debug}
     end
   end
 
