@@ -19,7 +19,7 @@ machine:
     DISTROS: "wheezy jessie trusty xenial el6 el7"
     NOTESTS: "xenial el7"
     ST2_GITURL: https://github.com/StackStorm/st2
-    ST2_DOCKERFILES_REPO: https://github.com/StackStorm/st2-dockerfiles
+    ST2_DOCKERFILES_REPO: https://github.com/userlocalhost/st2-dockerfiles
     ST2_PACKAGES: "st2 st2mistral"
   pre:
     - mkdir -p ~/packages
@@ -29,7 +29,6 @@ machine:
       sudo chmod 0755 /usr/bin/docker
   services:
     - docker
-    - mongodb
     - postgresql
     - rabbitmq-server
 
@@ -55,6 +54,8 @@ dependencies:
     - .circle/docker-compose.sh build ${DISTRO}
 
 test:
+  pre:
+    - service mongod status || service mongod start
   override:
     - .circle/docker-compose.sh test ${DISTRO}:
         parallel: true
@@ -88,3 +89,5 @@ experimental:
       only:
         - master
         - /v[0-9]+\.[0-9]+/
+        # this change is forked repository only to run test in circle
+        - /^test.*/

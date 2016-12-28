@@ -112,13 +112,13 @@ centos7build:
 ## Package testing nodes
 #
 wheezytest:
-  image: stackstorm/packagingtest:wheezy
+  image: 0hyama/packagingtest:wheezy
   extends:
     file: docker-compose.override.yml
     service: volumes-circle
 
 jessietest:
-  image: stackstorm/packagingtest:jessie
+  image: 0hyama/packagingtest:jessie
   extends:
     file: docker-compose.override.yml
     service: volumes-circle
